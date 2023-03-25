@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "generate:changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx src",
     "prepare": "husky install",
     "start": "nodemon index.ts",
@@ -23,6 +24,7 @@
     "@typescript-eslint/eslint-plugin": "5.56.0",
     "@typescript-eslint/parser": "5.56.0",
     "commitizen": "4.3.0",
+    "conventional-changelog-cli": "2.2.2",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.36.0",
     "eslint-config-airbnb": "19.0.4",
