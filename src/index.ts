@@ -3,12 +3,12 @@
 import prompts from 'prompts'
 import * as fs from 'node:fs/promises'
 import path from 'path'
+// import PackageJson from '@npmcli/package-json'
 
 type InputType = {
   projectName: string
 }
 
-// const mkdir = promisify(fs.mkdir)
 prompts([
   {
     type: 'text',
@@ -26,7 +26,10 @@ prompts([
     await fs.mkdir(projectDir, { recursive: true })
     await fs.mkdir(path.join(projectDir, 'src'), { recursive: true })
     await fs.writeFile(path.join(projectDir, 'src', 'index.ts'), '')
-
+    await fs.copyFile(
+      path.join(__dirname, 'template', 'src', 'package.json'),
+      path.join(projectDir, 'package.json')
+    )
     const dotConfigFiles = await fs.readdir(
       path.resolve(__dirname, 'template', 'dotFileConfigs')
     )
@@ -52,6 +55,9 @@ prompts([
         path.join(projectDir, file)
       )
     }
+
+    // const pkgJson = new PackageJson('./')
+    // await pkgJson.save()
   })
   // eslint-disable-next-line no-console
   .catch((error) => console.error(error))

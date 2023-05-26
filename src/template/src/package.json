@@ -1,18 +1,9 @@
 {
-  "name": "shmack",
-  "version": "0.0.3",
+  "name": "project-name",
+  "version": "0.0.1",
   "description": "",
   "main": "src/index.js",
-  "keywords": [
-    "typescript project generator",
-    "typescript project starter"
-  ],
-  "bin": {
-    "shmack": "dist/index.js"
-  },
   "scripts": {
-    "build": "tsc",
-    "postbuild": "cp -r src/template/configs dist/template && cp -r src/template/dotFileConfigs dist/template",
     "generate:changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx src",
     "prepare": "husky install",
