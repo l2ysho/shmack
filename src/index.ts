@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import prompts from 'prompts'
 import * as fs from 'node:fs/promises'
 import path from 'path'
